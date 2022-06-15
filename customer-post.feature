@@ -38,7 +38,7 @@ Feature: Create Customer API
         "userName":""
     }
     When method post
-    Then status response_status
+    Then status <response_status>
     Then print response
 
     Examples:

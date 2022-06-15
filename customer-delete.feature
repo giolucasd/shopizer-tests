@@ -10,7 +10,7 @@ Feature: Delete Customer API
     Given path '/<customer_id>'
     And request {id: <customer_id>}
     When method delete
-    Then status response_status
+    Then status <response_status>
     Then print response
 
     Examples:
