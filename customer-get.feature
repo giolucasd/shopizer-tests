@@ -16,5 +16,6 @@ Feature: Get Customer API
     Examples:
       | customer_id | response_status  |
       | 1          | 200              |
+      | -1         | 404              |
       | \'35\'        | 500              |
       | \'nonint\'    | 500              |

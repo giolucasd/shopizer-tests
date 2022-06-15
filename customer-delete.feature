@@ -15,6 +15,7 @@ Feature: Delete Customer API
 
     Examples:
       | customer_id | response_status  |
-      | 35          | 200              |
-      | '35'        | 204              |
-      | 'nonint'    | 204              |
+      | 1          | 200              |
+      | -1         | 404              |
+      | \'35\'        | 500              |
+      | \'nonint\'    | 500              |
