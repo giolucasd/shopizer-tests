@@ -1,7 +1,9 @@
 Feature: Create Customer API
 
   Background:
-    * url 'https://localhost/api/v1/private/customer/'
+    * url 'http://localhost:8080/api/v1/private/customer/'
+    * def token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBzaG9waXplci5jb20iLCJhdWQiOiJhcGkiLCJleHAiOjE2NTU3NDgwMzAsImlhdCI6MTY1NTE0MzIzMH0._eLqvlTQZHUqpwq8w6fcs2uiYYOC9yjjPdQD7F5OX118n4FhwCt6lzxVe7NEryXyxQoBzZMFlPERGCYcNGRTUg"
+    * header Authorization = 'Bearer ' + token
 
   Scenario Outline: Test arguments domain.
 
