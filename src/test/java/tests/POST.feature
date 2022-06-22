@@ -14,4 +14,4 @@ Feature: Create Customer API
     Then print response
 
     Examples:
-      | read('post-entries.csv') |
+      | read('entries.csv') |
