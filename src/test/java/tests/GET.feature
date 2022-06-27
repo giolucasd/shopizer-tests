@@ -8,7 +8,7 @@ Feature: Get Customer API
   Scenario: Test Getting Created Customer.
 
     Given path '/'
-    And request { "billing": { "company":"", "address":"Add St 123", "city":"New York", "postalCode":"12345", "stateProvince":"NY", "country":"US", "zone":"NY", "firstName":"John", "lastName":"Doe", "phone":"+1-202-555-0124"}, "delivery": { "company":"", "address":"", "city":"", "postalCode":"", "stateProvince":"", "country":"", "zone":"", "firstName":"", "lastName":"" }, "emailAddress":"get@email.com", "groups":[], "language":"en", "userName":"" }
+    And request { "billing": { "company":"", "address":"Add St 123", "city":"New York", "postalCode":"12345", "stateProvince":"NY", "country":"US", "zone":"NY", "firstName":"John", "lastName":"Doe", "phone":"+1-202-555-0124"}, "delivery": { "company":"", "address":"", "city":"", "postalCode":"", "stateProvince":"", "country":"", "zone":"", "firstName":"", "lastName":"" }, "emailAddress":"gettest@email.com", "groups":[], "language":"en", "userName":"" }
     And method post
     And def id = response.id
     And print response
