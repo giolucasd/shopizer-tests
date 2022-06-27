@@ -11,12 +11,13 @@ Feature: Update Customer API
     And method post
     And def id = response.id
     And print response
-
     When path '/' + id
     And request { "billing": { "company":"", "address":<billing_address>, "city":<billing_city>, "postalCode":<billing_postalCode>, "stateProvince":<billing_stateProvince>, "country":<billing_country>, "zone":<billing_zone>, "firstName":<billing_firstName>, "lastName":<billing_lastName>, "phone":<billing_phone>}, "delivery": { "company":"", "address":"", "city":"", "postalCode":"", "stateProvince":"", "country":"", "zone":"", "firstName":"", "lastName":"" }, "emailAddress":<emailAddress>, "groups":[], "language":"en", "userName":"" }
     And method put
     Then status <response_status>
     Then print response
+    When method delete
+    Then status 200
 
     Examples:
       | read('update-entries.csv') |
