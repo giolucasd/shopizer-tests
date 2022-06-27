@@ -20,3 +20,17 @@ Feature: Update Customer API
 
     Examples:
       | read('update-entries.csv') |
+
+  Scenario Outline: Test ID domain.
+
+    Given path '/<customer_id>'
+    And request { "billing": { "company":"", "address":"Add St 1234", "city":"San Francisco", "postalCode":"54321", "stateProvince":"CA", "country":"US", "zone":"Cali", "firstName":"John", "lastName":"Lennon", "phone":"+1-202-666-0124"}, "delivery": { "company":"", "address":"", "city":"", "postalCode":"", "stateProvince":"", "country":"", "zone":"", "firstName":"", "lastName":"" }, "emailAddress":"another@email.com", "groups":[], "language":"en", "userName":"" }
+    When method put
+    Then status <response_status>
+    Then print response
+
+    Examples:
+      | customer_id  | response_status  |
+      | -1           | 404              |
+      | \'34\'       | 500              |
+      | \'nonint\'   | 500              |
