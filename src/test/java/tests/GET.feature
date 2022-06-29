@@ -1,8 +1,9 @@
 Feature: Get Customer API
 
   Background:
+    * def adminAuthResponse = call read('AdminAuth.feature')
+    * def token = adminAuthResponse.response.token
     Given url 'http://localhost:8080/api/v1/private/customer/'
-    And def token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBzaG9waXplci5jb20iLCJhdWQiOiJhcGkiLCJleHAiOjE2NTYzNTI5NTgsImlhdCI6MTY1NTc0ODE1OH0.7Lig7jDk52H9Cgx_XpAH95B5CDET0JWnxvQHPA8DJRIFP2ukgCBa0k4P1BVlG76Ta4T0xk0qSy62bEkOP_HInA"
     And header Authorization = 'Bearer ' + token
 
   Scenario: Test Getting Created Customer.

@@ -1,8 +1,9 @@
 Feature: Update Customer API
 
   Background:
+    * def adminAuthResponse = call read('AdminAuth.feature')
+    * def token = adminAuthResponse.response.token
     Given url 'http://localhost:8080/api/v1/private/customer/'
-    And def token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBzaG9waXplci5jb20iLCJhdWQiOiJhcGkiLCJleHAiOjE2NTY1MjMwNjIsImlhdCI6MTY1NTkxODI2Mn0.hFqkpp5nxdTNDSjgcA6Qpvm5gXWZ_fbjZwuDb0KW7L09rJmAjyKW1CUEaFQCdYdfK73uuTf1Q9zd3U-86F-wnQ"
     And header Authorization = 'Bearer ' + token
 
   Scenario Outline: Test Update Created User.
