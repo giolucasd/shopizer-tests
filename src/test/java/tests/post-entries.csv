@@ -42,4 +42,4 @@ billing_address,billing_city,billing_postalCode,billing_stateProvince,billing_co
 "4th Av.","New York","10005","NY","US","NY","Jon","Doe","","jondoe37@mail.net",400
 "4th Av.","New York","10005","NY","US","NY","Jon","Doe","0","jondoe38@mail.net",200
 "4th Av.","New York","10005","NY","US","NY","Jon","Doe","+1-202-555-0124","",400
-"4th Av.","New York","10005","NY","US","NY","Jon","Doe","+1-202-555-0124","A",200
+"4th Av.","New York","10005","NY","US","NY","Jon","Doe","+1-202-555-0124","b",200
