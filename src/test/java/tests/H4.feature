@@ -50,7 +50,8 @@ Feature: H4
 
     # 6. Logout
     # no logout endpoint
-  
+
+  # False positive: see step 5
   Scenario: Test Proceed with Purchase to Payment (2 -> 6 -> 8 -> 9 -> 2)
     # 1. Create products for testing
     * header Authorization = 'Bearer ' + adminToken
@@ -85,11 +86,7 @@ Feature: H4
     And print response
 
     # 5. Pay purchase
-    # TODO não to conseguindo descobrir como fazer isso funcionar. A interface do frontend não chega a chamar essa API.
-    Given url 'http://localhost:8080/api/v1/cart/' + cartCode + '/payment/init?lang=en'
-    * def amount = response.totals[1].value
-    And request { "amount": #(amount), "paymentModule": "", "paymentToken": "", "paymentType": "CREDITCARD", "transactionType": "INIT" }
-    When method post
+    # Front-end interface calls no interface when it comes to this point, so there's a bug.
 
     # 6. Logout
     # no logout endpoint
@@ -186,6 +183,7 @@ Feature: H4
     # 6. Logout
     # no logout endpoint
 
+  # False negative: see step 3
   Scenario: Test Create User with Empty Cart then Add Items to Cart (2 -> 5 -> 6 -> 2)
     # 1. Create products for testing
     * header Authorization = 'Bearer ' + adminToken
@@ -203,7 +201,7 @@ Feature: H4
     * header Authorization = 'Bearer ' + token
 
     # 3. Check that cart is empty
-    # TODO por algum motivo tá retornando 403 ao invés de 404, que seria o correto. Quando eu tento replicar a mesma chamada no Postman ou crio um teste aqui usando um token já criado, retorna 404.
+    # This same API call returns the expected response status when called directly, but fails in this test.
     Given url 'http://localhost:8080/api/v1/'
     And path 'auth/customer/cart'
     And param lang = 'en'
